@@ -1,0 +1,46 @@
+<h1><%= @user.username %>'s Profile</h1>
+
+<div class="user-profile">
+  <% if @user.avatar_url.present? %>
+    <%= image_tag @user.avatar_url, alt: "Avatar", style: "max-width: 200px; border-radius: 50%;" %>
+  <% else %>
+    <p>No avatar available</p>
+  <% end %>
+
+  <p>Username: <%= @user.username %></p>
+</div>
+
+<hr>
+
+<!--<h2>Edit Profile</h2>-->
+<%#= form_with(model: @user, url: update_user_profile_path(@user.username), method: :patch, local: true) do |f| %>
+<!--  <div>-->
+    <%#= f.label :username, "Update Username" %>
+    <%#= f.text_field :username, placeholder: "Enter new username" %>
+<!--  </div>
+  
+  <div>
+    <%#= f.label :avatar_url, "Update Avatar URL" %>-->
+    <%#= f.text_field :avatar_url, placeholder: "Enter new avatar image URL" %>
+<!--  </div>
+  
+  <div>
+    <%#= f.submit "Update Profile" %>-->
+<!--  </div>-->
+<%# end %>
+
+<hr>
+
+<h2>Bidded Items</h2>
+<% if @bids.any? %>
+  <% @bids.each do |bid| %>
+    <div class="bidded-item">
+      <h3><%= link_to bid.skin.name, skin_path(bid.skin) %></h3>
+      <p>Bid Amount: <%= number_to_currency(bid.amount) %></p>
+      <p>Bid Placed At: <%= bid.created_at.strftime("%b %d, %Y %I:%M %p") %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>No bids yet!</p>
+<% end %>
+

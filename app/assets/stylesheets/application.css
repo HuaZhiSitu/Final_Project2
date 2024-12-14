@@ -1,15 +1,50 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* Container for all skins */
+.skins-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to the next row */
+  gap: 20px; /* Add spacing between cards */
+  justify-content: space-between; /* Spread the cards evenly */
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+/* Individual skin card */
+.skin-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  width: calc(20% - 20px); /* Dynamic width to fit 5 cards, minus gap */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin: auto; /* Center the card if there's extra space */
+  max-width: 300px; /* Optional: Prevent cards from getting too wide */
+}
+
+/* Skin images */
+.skin-image {
+  width: 100%; /* Take full width of the card */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Skin card titles */
+.skin-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.skin-card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.skin-card a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.skin-card a:hover {
+  text-decoration: underline;
+}

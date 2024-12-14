@@ -1,0 +1,12 @@
+<h1><%= @the_skin.name %></h1>
+
+<% if @the_skin.image_url.present? %>
+  <%= image_tag @the_skin.image_url, style: "max-width: 500px; height: auto;" %>
+<% else %>
+  <p>No image available</p>
+<% end %>
+
+<p><%= @the_skin.description %></p>
+<p>Starting Price: <%= number_to_currency(@the_skin.starting_price) %></p>
+
+<%= link_to "Back to Skins", skins_path %>

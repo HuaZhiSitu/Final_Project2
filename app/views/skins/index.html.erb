@@ -1,0 +1,15 @@
+<h1>Available Skins</h1>
+<div class="skins-container">
+  <% @list_of_skins.each do |skin| %>
+    <div class="skin-card">
+      <h2><%= link_to skin.name, skin %></h2>
+      <% if skin.image_url.present? %>
+        <%= image_tag skin.image_url, class: "skin-image" %>
+      <% else %>
+        <p>No image available</p>
+      <% end %>
+      <p><%= skin.description %></p>
+      <p>Starting Price: <%= number_to_currency(skin.starting_price) %></p>
+    </div>
+  <% end %>
+</div>
