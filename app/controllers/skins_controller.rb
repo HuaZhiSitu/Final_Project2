@@ -5,12 +5,24 @@ class SkinsController < ApplicationController
     matching_skins = Skin.all
     @list_of_skins = matching_skins.order(created_at: :desc)
 
+    # matching_bids = Bids.all
+    # @list_of_bids = matching_bids.order(created_at: :desc)
+
     render template: "skins/index"
   end
 
   def show
-    matching_skins = Skin.find(params[:id])
-    @the_skin = matching_skins
+    the_id = params.fetch("skin_id")
+    matching_skins=Skin.where({:id=>the_id})
+    @the_skin = matching_skins.at(0)
+    # matching_skins = Skin.find(params[:id])
+    # @the_skin = matching_skins
+
+    @matching_bids=Bid.where({:id=>the_id})
+
+    # the_id = params.fetch("id")
+    # matching_skins = Skin.where({:id=>the_id})
+    # @the_skins = matching_skins.at(0)
     render template: "skins/show"
   end
 

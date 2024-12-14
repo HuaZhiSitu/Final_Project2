@@ -21,7 +21,8 @@
 #
 class Skin < ApplicationRecord
   belongs_to :user
-  has_many :bids, dependent: :destroy
+  # has_many :bids, dependent: :destroy
+  has_many(:skinbids,class_name: "Bid", foreign_key: "skin_id")
   has_one_attached :image # If you're using ActiveStorage for image uploads
 
   validates :name, :starting_price, presence: true

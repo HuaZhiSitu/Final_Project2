@@ -1,5 +1,4 @@
 <h1><%= @user.username %>'s Profile</h1>
-
 <div class="user-profile">
   <% if @user.avatar_url.present? %>
     <%= image_tag @user.avatar_url, alt: "Avatar", style: "max-width: 200px; border-radius: 50%;" %>
@@ -9,25 +8,6 @@
 
   <p>Username: <%= @user.username %></p>
 </div>
-
-<hr>
-
-<!--<h2>Edit Profile</h2>-->
-<%#= form_with(model: @user, url: update_user_profile_path(@user.username), method: :patch, local: true) do |f| %>
-<!--  <div>-->
-    <%#= f.label :username, "Update Username" %>
-    <%#= f.text_field :username, placeholder: "Enter new username" %>
-<!--  </div>
-  
-  <div>
-    <%#= f.label :avatar_url, "Update Avatar URL" %>-->
-    <%#= f.text_field :avatar_url, placeholder: "Enter new avatar image URL" %>
-<!--  </div>
-  
-  <div>
-    <%#= f.submit "Update Profile" %>-->
-<!--  </div>-->
-<%# end %>
 
 <hr>
 
@@ -43,4 +23,3 @@
 <% else %>
   <p>No bids yet!</p>
 <% end %>
-

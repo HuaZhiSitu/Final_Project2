@@ -2,7 +2,7 @@
 <div class="skins-container">
   <% @list_of_skins.each do |skin| %>
     <div class="skin-card">
-      <h2><%= link_to skin.name, skin %></h2>
+      <h2><a href="/skins/<%=skin.id%>"><%=skin.name%></h2>
       <% if skin.image_url.present? %>
         <%= image_tag skin.image_url, class: "skin-image" %>
       <% else %>

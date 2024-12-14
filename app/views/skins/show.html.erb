@@ -9,4 +9,42 @@
 <p><%= @the_skin.description %></p>
 <p>Starting Price: <%= number_to_currency(@the_skin.starting_price) %></p>
 
-<%= link_to "Back to Skins", skins_path %>
+<hr>
+
+<table  border="1">
+  <tr>
+    <th>
+      Bid ID
+    </th>
+
+    <th>
+      Username
+    </th>
+
+    <th>
+      Amount
+    </th>
+
+    <th>
+      Time
+    </th>
+  </tr>
+
+<%bids = @the_skin.skinbids.order({:id=>:asc})%>
+<% bids.each do |a_bid|%>
+  <tr>
+    <td>
+      <%=a_bid.id%>
+    </td>
+    <td>
+      <%=a_bid.user.username%>
+    </td>
+    <td>
+      <%=a_bid.amount%>
+    </td>
+    <td>
+      <%=a_bid.updated_at.strftime("%B %d, %Y") %>
+    </td>
+  </tr>
+<%end%>
+</table>

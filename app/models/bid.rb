@@ -21,7 +21,7 @@
 #
 class Bid < ApplicationRecord
   belongs_to :user
-  belongs_to :skin
+  has_many(:bidskins, class_name: "Skin",foreign_key:"skin_id")
 
   validates :amount, presence: true, numericality: { greater_than: 0 }
 end

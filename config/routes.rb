@@ -1,17 +1,56 @@
+# Rails.application.routes.draw do
+#   devise_for :users
+#   resources :skins do
+#     resources :bids, only: :create
+#   end
+#   root "skins#index"
+#   #Skins
+#   get("/", {controller: "skins", action: "index"})
+#   get("/skins/:id",{controller:"skins",action:"show"})
+
+#   #Profile 
+#   get("/userinfo/:username", {controller:"users",action:"show"})
+#   post("/update_profile", {controllers:"users",action:"update"})
+# end
+
+
+#fixing code
 Rails.application.routes.draw do
   devise_for :users
-  resources :skins do
-    resources :bids, only: :create
-  end
 
+  # Skins Resource
+  # resources :skins do
+  #   resources :bids, only: :create
+  # end
+  get("/skins/:skin_id", {:controller=>"skins",:action=>"show"})
+ 
+
+  # Root Route
   root "skins#index"
-  #Skins
-  get("/", {controller: "skins", action: "index"})
-  get("/skins/:id",{controller:"skins",action:"show"})
 
-  #Profile 
-  get("/userinfo/:username", {controller:"users",action:"show"})
+  # Profile Routes
+  get "/userinfo/:username", to: "users#show", as: "user_profile"
+  post "/update_profile", to: "users#update", as: "update_user_profile"
+
 end
+
+#fixing code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   # get("/skins/:path_id")
 
