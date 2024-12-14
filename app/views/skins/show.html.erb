@@ -30,14 +30,16 @@
     </th>
   </tr>
 
-<%bids = @the_skin.skinbids.order({:id=>:asc})%>
+<%bids = @the_skin.skinbids.order({:amount=>:desc})%>
 <% bids.each do |a_bid|%>
   <tr>
     <td>
       <%=a_bid.id%>
     </td>
     <td>
-      <%=a_bid.user.username%>
+<!--    this is for later, we are going to allow people to click on other ppls profiels-->
+      <a href="/userinfo/<%=a_bid.user.username%>"><%=a_bid.user.username%>
+      <%#=a_bid.user.username%>
     </td>
     <td>
       <%=a_bid.amount%>

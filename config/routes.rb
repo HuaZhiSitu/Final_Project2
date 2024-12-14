@@ -34,7 +34,13 @@ Rails.application.routes.draw do
 
 end
 
-#fixing code
+#placing new bids (same as updating)
+#posting new skin for sale
+#removing bids
+#in users we're looking at, we need to be able to see what items they're bidding on
+
+
+
 
 
 

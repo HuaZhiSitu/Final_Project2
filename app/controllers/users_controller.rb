@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     matching_users = User.where(username: params[:username])
-    @user = current_user
+    @user = matching_users.at(0)
 
     if @user.nil?
       redirect_to root_path, alert: "User not found!"
